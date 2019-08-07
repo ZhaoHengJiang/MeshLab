@@ -5,3 +5,4 @@
 3.用vs2015打开 ..\src\meshlab_full.pro
 4.右键项目filter_isoparametrization->属性->C/C++->命令行 在其他选项中添加/bigobj
 5.对meshlab_full.pro进行编译
+6.在..\src\distrib中点击.exe文件即可运行
