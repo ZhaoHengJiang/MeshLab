@@ -1,4 +1,4 @@
-1.下载vcglib并解压 https://github.com/cnr-isti-vclab/vcglib/tree/devel
+1.下载vcglib并解压 https://github.com/cnr-isti-vclab/vcglib/tree/devel 注意：一定要选择devel分支，master分支无法运行成功
 2.用vs2015打开 ..\src\external\external.pro 进行编译
 3.查找rc.exe的路径 我的路径是在C:\Program Files (x86)\Windows Kits\10\bin\10.0.17763.0\x64
    右键我的电脑->属性->高级系统设置->环境变量
