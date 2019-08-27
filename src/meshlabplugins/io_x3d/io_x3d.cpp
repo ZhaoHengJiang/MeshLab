@@ -153,9 +153,9 @@ bool IoX3DPlugin::save(const QString &formatName, const QString &fileName, MeshM
 QList<MeshIOInterface::Format> IoX3DPlugin::importFormats() const
 {
     QList<Format> formatList;
-    formatList << Format("X3D File Format - XML encoding", tr("X3D"));
-    formatList << Format("X3D File Format - VRML encoding", tr("X3DV"));
-    formatList << Format("VRML 2.0 File Format", tr("WRL"));
+//    formatList << Format("X3D File Format - XML encoding", tr("X3D"));
+//   formatList << Format("X3D File Format - VRML encoding", tr("X3DV"));
+//    formatList << Format("VRML 2.0 File Format", tr("WRL"));
     return formatList;
 }
 
@@ -165,7 +165,7 @@ QList<MeshIOInterface::Format> IoX3DPlugin::importFormats() const
 QList<MeshIOInterface::Format> IoX3DPlugin::exportFormats() const
 {
     QList<Format> formatList;
-    formatList << Format("X3D File Format", tr("X3D"));
+//    formatList << Format("X3D File Format", tr("X3D"));
     return formatList;
 }
 

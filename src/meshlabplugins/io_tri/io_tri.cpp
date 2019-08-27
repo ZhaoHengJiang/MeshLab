@@ -85,9 +85,9 @@ bool TriIOPlugin::save(const QString &, const QString &, MeshModel &, const int,
 QList<MeshIOInterface::Format> TriIOPlugin::importFormats() const
 {
 	QList<Format> formatList;
-	formatList 
-		<< Format("TRI (photogrammetric reconstructions)", tr("TRI")) 
-	  << Format("ASC (ascii triplets of points)", tr("ASC"));
+//	formatList 
+//		<< Format("TRI (photogrammetric reconstructions)", tr("TRI")) 
+//	  << Format("ASC (ascii triplets of points)", tr("ASC"));
 	return formatList;
 }
 

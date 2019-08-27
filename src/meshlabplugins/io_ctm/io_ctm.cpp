@@ -69,7 +69,7 @@ bool IOMPlugin::save(const QString & /*formatName*/, const QString &fileName, Me
 QList<MeshIOInterface::Format> IOMPlugin::importFormats() const
 {
 	QList<Format> formatList;
-  formatList << Format("OpenCTM compressed format"	,tr("CTM"));
+  //formatList << Format("OpenCTM compressed format"	,tr("CTM"));
 	return formatList;
 }
 
@@ -79,7 +79,7 @@ QList<MeshIOInterface::Format> IOMPlugin::importFormats() const
 QList<MeshIOInterface::Format> IOMPlugin::exportFormats() const
 {
 	QList<Format> formatList;
-    formatList << Format("OpenCTM compressed format"	,tr("CTM"));
+    //formatList << Format("OpenCTM compressed format"	,tr("CTM"));
 	return formatList;
 }
 

@@ -146,7 +146,7 @@ bool PDBIOPlugin::save(const QString & /*formatName*/,const QString & /*fileName
 QList<MeshIOInterface::Format> PDBIOPlugin::importFormats() const
 {
 	QList<Format> formatList;
-	formatList << Format("Protein Data Bank"	, tr("PDB"));
+	//formatList << Format("Protein Data Bank"	, tr("PDB"));
 
 	return formatList;
 }

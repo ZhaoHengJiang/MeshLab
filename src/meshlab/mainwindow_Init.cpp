@@ -629,13 +629,13 @@ void MainWindow::createMenus()
 	preferencesMenu->addAction(setCustomizeAct);
 
 	//////////////////// Menu Help ////////////////////////////////////////////////////////////////
-	helpMenu = menuBar()->addMenu(tr("&Help"));
+	/*helpMenu = menuBar()->addMenu(tr("&Help"));
 	helpMenu->addAction(aboutAct);
 	helpMenu->addAction(aboutPluginsAct);
 	helpMenu->addAction(onlineHelpAct);
 	helpMenu->addAction(onscreenHelpAct);
 	helpMenu->addAction(submitBugAct);
-	helpMenu->addAction(checkUpdatesAct);
+	helpMenu->addAction(checkUpdatesAct);*/
 
 	fillEditMenu();
 	fillRenderMenu();
@@ -1157,7 +1157,7 @@ void MainWindow::checkForUpdates(bool verboseFlag)
 
 void MainWindow::connectionDone(QNetworkReply *reply)
 {
-  QString answer = reply->readAll();
+  /*QString answer = reply->readAll();
   if (answer.left(3) == QString("NEW"))
     QMessageBox::information(this, "MeshLab Version Checking", answer.remove(0, 3));
   else 
@@ -1172,7 +1172,7 @@ void MainWindow::connectionDone(QNetworkReply *reply)
   
   QSettings settings;
   int loadedMeshCounter = settings.value("loadedMeshCounter", 0).toInt();
-  settings.setValue("lastComunicatedValue", loadedMeshCounter);
+  settings.setValue("lastComunicatedValue", loadedMeshCounter);*/
 }
 
 

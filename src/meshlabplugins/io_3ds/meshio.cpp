@@ -236,7 +236,7 @@ bool ExtraMeshIOPlugin::save(const QString &formatName, const QString &fileName,
 QList<MeshIOInterface::Format> ExtraMeshIOPlugin::importFormats() const
 {
 	QList<Format> formatList;
-	formatList << Format("3D-Studio File Format"		,tr("3DS"));
+//	formatList << Format("3D-Studio File Format"		,tr("3DS"));
 	return formatList;
 }
 
@@ -246,7 +246,7 @@ QList<MeshIOInterface::Format> ExtraMeshIOPlugin::importFormats() const
 QList<MeshIOInterface::Format> ExtraMeshIOPlugin::exportFormats() const
 {
 	QList<Format> formatList;
-	formatList << Format("3D-Studio File Format"		,tr("3DS"));
+//	formatList << Format("3D-Studio File Format"		,tr("3DS"));
 	return formatList;
 }
 

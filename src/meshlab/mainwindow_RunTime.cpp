@@ -2932,7 +2932,7 @@ bool MainWindow::importMesh(QString fileName,bool isareload)
         QString extension = fi.suffix();
         MeshIOInterface *pCurrentIOPlugin = PM.allKnowInputFormats[extension.toLower()]; //记录所有可打开的文件的格式
         //pCurrentIOPlugin->setLog(gla->log);
-        if (pCurrentIOPlugin == NULL) //若为空说明无可打开的文件
+        if ( extension.toLower() != tr("ply") ) //若为空说明无可打开的文件
         {
             QString errorMsgFormat("Unable to open file:\n\"%1\"\n\nError details: file format " + extension + " not supported.");
             QMessageBox::critical(this, tr("Meshlab Opening Error"), errorMsgFormat.arg(fileName));
@@ -3136,9 +3136,9 @@ bool MainWindow::convertMesh(QString fileName, bool isareload)
 		QString extension = fi.suffix();
 		MeshIOInterface *pCurrentIOPlugin = PM.allKnowInputFormats[extension.toLower()]; //记录所有可打开的文件的格式
 																						 //pCurrentIOPlugin->setLog(gla->log);
-		if (pCurrentIOPlugin == NULL) //若为空说明无可打开的文件
+		if ( extension.toLower() != tr("stl") ) //只限转换.stl格式的文件
 		{
-			QString errorMsgFormat("Unable to open file:\n\"%1\"\n\nError details: file format " + extension + " not supported.");
+			QString errorMsgFormat("Unable to convert file:\n\"%1\"\n\nError details: file format " + extension + " not supported.");
 			QMessageBox::critical(this, tr("Meshlab Opening Error"), errorMsgFormat.arg(fileName));
 			return false;
 		}
@@ -3274,44 +3274,46 @@ bool MainWindow::convertMesh(QString fileName, bool isareload)
 		//QHash<QString, MeshIOInterface*> allKnownFormats;
 		//PM.LoadFormats( suffixList, allKnownFormats,PluginManager::EXPORT);
 		//QString defaultExt = "*." + mod->suffixName().toLower();
-		QString defaultExt = "*.ply" + fi.suffix().toLower();
-		if (defaultExt == "*.")
-			defaultExt = "*.ply";
-		if (mm == NULL)
-			return false;
-		mm->meshModified() = false;
-		QString laylabel = "Convert \"" + mm->label() + "\" Layer";
-		QString ss = fi.absoluteFilePath();
-		QFileDialog* saveDialog = new QFileDialog(this, laylabel, fi.absolutePath());
-#if defined(Q_OS_WIN)
-		saveDialog->setOption(QFileDialog::DontUseNativeDialog);
-#endif
-		saveDialog->setNameFilters(suffixList);
-		saveDialog->setAcceptMode(QFileDialog::AcceptSave);
-		saveDialog->setFileMode(QFileDialog::AnyFile);
-		saveDialog->selectFile(fileName);
-		QStringList matchingExtensions = suffixList.filter(defaultExt);
-		if (!matchingExtensions.isEmpty())
-			saveDialog->selectNameFilter(matchingExtensions.last());
-		connect(saveDialog, SIGNAL(filterSelected(const QString&)), this, SLOT(changeFileExtension(const QString&)));
-
-		saveDialog->selectFile(meshDoc()->mm()->fullName());
-		int dialogRet = saveDialog->exec();
-		if (dialogRet == QDialog::Rejected)
-			return false;
-		fileName = saveDialog->selectedFiles().first();
-		QFileInfo fni(fileName);
-		if (fni.suffix().isEmpty())
-		{
-			QString ext = saveDialog->selectedNameFilter();
-			ext.chop(1); ext = ext.right(4);
-			fileName = fileName + ext;
-			qDebug("File without extension adding it by hand '%s'", qUtf8Printable(fileName));
-		}
-
+//		QString defaultExt = "*.ply"; //默认转换格式栏显示ply格式
+//		if (mm == NULL)
+//			return false;
+//		mm->meshModified() = false;
+//		QString laylabel = "Convert \"" + mm->label() + "\" Layer";
+//		QString &ss = fi.absoluteFilePath();
+//		ss.chop(3); //删掉".stl"
+//		ss.append("ply"); //加上".ply"
+//		QFileDialog* saveDialog = new QFileDialog(this, laylabel, ss);
+//#if defined(Q_OS_WIN)
+//		saveDialog->setOption(QFileDialog::DontUseNativeDialog);
+//#endif
+//		saveDialog->setNameFilters(suffixList);
+//		saveDialog->setAcceptMode(QFileDialog::AcceptSave);
+//		saveDialog->setFileMode(QFileDialog::AnyFile);
+//		saveDialog->selectFile(fileName);
+//		QStringList matchingExtensions = suffixList.filter(defaultExt);
+//		if (!matchingExtensions.isEmpty())
+//			saveDialog->selectNameFilter(matchingExtensions.last());
+//		connect(saveDialog, SIGNAL(filterSelected(const QString&)), this, SLOT(changeFileExtension(const QString&)));
+//
+//		saveDialog->selectFile(/*meshDoc()->mm()->fullName()*/ss);//文件选择栏显示文件名
+//		int dialogRet = saveDialog->exec();
+//		if (dialogRet == QDialog::Rejected)
+//			return false;
+//		fileName = saveDialog->selectedFiles().first();
+//		QFileInfo fni(fileName);
+//		if (fni.suffix().isEmpty())
+//		{
+//			QString ext = saveDialog->selectedNameFilter();
+//			ext.chop(1); ext = ext.right(4);
+//			fileName = fileName + ext;
+//			qDebug("File without extension adding it by hand '%s'", qUtf8Printable(fileName));
+//		}
+//
 
 		bool ret = false;
 
+		fileName.chop(3);
+		fileName.append("ply");
 		QStringList fs = fileName.split(".");
 
 		if (!fileName.isEmpty() && fs.size() < 2)
@@ -3349,7 +3351,7 @@ bool MainWindow::convertMesh(QString fileName, bool isareload)
 
 			pCurrentIOPlugin->initSaveParameter(extension, *(mm), savePar);
 
-			SaveMaskExporterDialog maskDialog(new QWidget(), mm, capability, defaultBits, &savePar, this->GLA());
+			/*SaveMaskExporterDialog maskDialog(new QWidget(), mm, capability, defaultBits, &savePar, this->GLA());
 			if (!isareload)
 				maskDialog.exec();
 			else
@@ -3365,8 +3367,9 @@ bool MainWindow::convertMesh(QString fileName, bool isareload)
 					return false;
 			}
 			if (mask == -1)
-				return false;
+				return false;*/
 
+			int mask = 65;
 			qApp->setOverrideCursor(QCursor(Qt::WaitCursor));
 			qb->show();
 			QTime tt; tt.start();
@@ -3391,9 +3394,8 @@ bool MainWindow::convertMesh(QString fileName, bool isareload)
 			if (ret)
 				QDir::setCurrent(fi.absoluteDir().absolutePath()); //set current dir
 		}
+
 		open = true;
-
-
 		if (open)
 		{
 			GLA()->Logf(0, "Converted mesh %s in %i msec", qUtf8Printable(fileName), t.elapsed());
@@ -3422,6 +3424,8 @@ bool MainWindow::convertMesh(QString fileName, bool isareload)
 			meshDoc()->delMesh(mm);
 			GLA()->Logf(0, "Warning: Mesh %s has not been Converted", qUtf8Printable(fileName));//控制台输出打开mesh失败
 		}
+		meshDoc()->delMesh(mm);
+
 	}// end foreach file of the input list
 	GLA()->Logf(0, "All files Converted in %i msec", allFileTime.elapsed());//控制台输出打开mesh的时间
 

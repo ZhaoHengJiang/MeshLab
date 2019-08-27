@@ -430,12 +430,12 @@ QList<MeshIOInterface::Format> BaseMeshIOPlugin::importFormats() const
 	QList<Format> formatList;
 	formatList << Format("Stanford Polygon File Format", tr("PLY"));
 	formatList << Format("STL File Format", tr("STL"));
-	formatList << Format("Alias Wavefront Object", tr("OBJ"));
-	formatList << Format("Quad Object", tr("QOBJ"));
-	formatList << Format("Object File Format", tr("OFF"));
-	formatList << Format("PTX File Format", tr("PTX"));
-	formatList << Format("VCG Dump File Format", tr("VMI"));
-    formatList << Format("FBX Autodesk Interchange Format", tr("FBX"));
+	//formatList << Format("Alias Wavefront Object", tr("OBJ"));
+	//formatList << Format("Quad Object", tr("QOBJ"));
+	//formatList << Format("Object File Format", tr("OFF"));
+	//formatList << Format("PTX File Format", tr("PTX"));
+	//formatList << Format("VCG Dump File Format", tr("VMI"));
+    //formatList << Format("FBX Autodesk Interchange Format", tr("FBX"));
 
 	return formatList;
 }
@@ -448,10 +448,10 @@ QList<MeshIOInterface::Format> BaseMeshIOPlugin::exportFormats() const
 	QList<Format> formatList;
 	formatList << Format("Stanford Polygon File Format", tr("PLY"));
 	formatList << Format("STL File Format", tr("STL"));
-	formatList << Format("Alias Wavefront Object", tr("OBJ"));
-	formatList << Format("Object File Format", tr("OFF"));
-	formatList << Format("VRML File Format", tr("WRL"));
-	formatList << Format("DXF File Format", tr("DXF"));
+	//formatList << Format("Alias Wavefront Object", tr("OBJ"));
+	//formatList << Format("Object File Format", tr("OFF"));
+	//formatList << Format("VRML File Format", tr("WRL"));
+	//formatList << Format("DXF File Format", tr("DXF"));
 	return formatList;
 }
 

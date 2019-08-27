@@ -434,7 +434,7 @@ QList<MeshIOInterface::Format> JSONIOPlugin::importFormats(void) const
 QList<MeshIOInterface::Format> JSONIOPlugin::exportFormats(void) const
 {
 	QList<Format> formatList;
-	formatList << Format("JavaScript JSON", tr("JSON"));
+	//formatList << Format("JavaScript JSON", tr("JSON"));
 	return formatList;
 }
 

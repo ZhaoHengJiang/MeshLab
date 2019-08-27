@@ -215,7 +215,7 @@ bool ColladaIOPlugin::save(const QString &formatName, const QString &fileName, M
 QList<MeshIOInterface::Format> ColladaIOPlugin::importFormats() const
 {
 	QList<Format> formatList;
-	formatList << Format("Collada File Format"	,tr("DAE"));
+	//formatList << Format("Collada File Format"	,tr("DAE"));
 	return formatList;
 }
 
@@ -225,7 +225,7 @@ QList<MeshIOInterface::Format> ColladaIOPlugin::importFormats() const
 QList<MeshIOInterface::Format> ColladaIOPlugin::exportFormats() const
 {
 	QList<Format> formatList;
-	formatList << Format("Collada File Format"	,tr("DAE"));
+	//formatList << Format("Collada File Format"	,tr("DAE"));
 	return formatList;
 }
 

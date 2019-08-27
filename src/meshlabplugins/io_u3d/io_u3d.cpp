@@ -154,8 +154,8 @@ QList<MeshIOInterface::Format> U3DIOPlugin::importFormats() const
 QList<MeshIOInterface::Format> U3DIOPlugin::exportFormats() const
 {
 	QList<Format> formatList;
-	formatList << Format("U3D File Format"	,tr("U3D"));
-	formatList << Format("IDTF File Format"	,tr("IDTF"));
+//	formatList << Format("U3D File Format"	,tr("U3D"));
+//	formatList << Format("IDTF File Format"	,tr("IDTF"));
 	return formatList;
 }
 

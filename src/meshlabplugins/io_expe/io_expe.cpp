@@ -134,9 +134,9 @@ bool ExpeIOPlugin::save(const QString &formatName, const QString &fileName, Mesh
 QList<MeshIOInterface::Format> ExpeIOPlugin::importFormats() const
 {
 	QList<Format> formatList;
-	formatList << Format("Expe's point set (binary)"		,tr("pts"));
-	formatList << Format("Expe's point set (ascii)"			,tr("apts"));
-	formatList << Format("XYZ Point Cloud (with or without normal)"				,tr("xyz"));
+	//formatList << Format("Expe's point set (binary)"		,tr("pts"));
+	//formatList << Format("Expe's point set (ascii)"			,tr("apts"));
+	//formatList << Format("XYZ Point Cloud (with or without normal)"				,tr("xyz"));
 	return formatList;
 }
 
@@ -148,7 +148,7 @@ QList<MeshIOInterface::Format> ExpeIOPlugin::exportFormats() const
 	QList<Format> formatList;
 // 	formatList << Format("Expe's point set (binary)"		,tr("pts"));
 // 	formatList << Format("Expe's point set (ascii)"			,tr("apts"));
-	formatList << Format("XYZ Point Cloud (with or without normal)"				,tr("xyz"));
+	//formatList << Format("XYZ Point Cloud (with or without normal)"				,tr("xyz"));
 	return formatList;
 }
 

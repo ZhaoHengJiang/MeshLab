@@ -158,7 +158,7 @@ bool BreMeshIOPlugin::save(const QString & /*formatName*/,const QString & /*file
 QList<MeshIOInterface::Format> BreMeshIOPlugin::importFormats() const
 {
 	QList<Format> formatList;
-	formatList << Format("Breuckmann File Format"	, tr("BRE"));
+	//formatList << Format("Breuckmann File Format"	, tr("BRE"));
 
 	return formatList;
 }

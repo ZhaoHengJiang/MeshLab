@@ -101,7 +101,7 @@ bool TxtIOPlugin::save(const QString & /*formatName*/, const QString & /*fileNam
 QList<MeshIOInterface::Format> TxtIOPlugin::importFormats() const
 {
 	QList<Format> formatList;
-    formatList << Format("TXT (Generic ASCII point list)", tr("TXT"));
+//    formatList << Format("TXT (Generic ASCII point list)", tr("TXT"));
 
 	return formatList;
 }

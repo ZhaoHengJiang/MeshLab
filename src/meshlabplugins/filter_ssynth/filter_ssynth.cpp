@@ -152,7 +152,7 @@ int FilterSSynth::postCondition(QAction* filter) const
 QList<MeshIOInterface::Format> FilterSSynth::importFormats() const
  {
          QList<MeshIOInterface::Format> formats;
-         formats<< MeshIOInterface::Format("Eisen Script File", tr("ES"));
+         //formats<< MeshIOInterface::Format("Eisen Script File", tr("ES"));
          return formats;
  }
  QList<MeshIOInterface::Format> FilterSSynth::exportFormats() const
